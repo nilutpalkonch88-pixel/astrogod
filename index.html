@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AstroGod — AI Astrology Oracle</title>
+<meta name="description" content="AstroGod: neon 3D interactive Vedic astrology AI — kundali, Yogini Dasha, Laghu Parashari yogas, medical astrology pointers, palmistry scanner and AI oracle chat." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<canvas id="cosmos"></canvas>
+<div class="nebula"></div>
+<div class="scroll-progress"><div class="scroll-progress-bar" id="progressBar"></div></div>
+
+<!-- Stellar loader -->
+<div class="loader" id="loader">
+  <div class="loader-ring"><div class="loader-om">ॐ</div></div>
+  <p>Aligning the planets…</p>
+</div>
+
+<!-- Welcome voice gate (browsers need one tap to allow sound) -->
+<div class="welcome-gate" id="welcomeGate">
+  <div class="welcome-card">
+    <div class="welcome-om">ॐ</div>
+    <h2>✨ AstroGod ✨</h2>
+    <div class="dev-badge">🛠️ PROTOTYPE</div>
+    <p id="welcomePreview">Namaste seeker… tap to enter and hear my voice.</p>
+    <div class="dev-msg">
+      <b>👋 Hello Jethai!</b> I am <b>Nilutpal</b>. This is a <b>prototype</b> — please check it and give your final decision on what is wrong or not. <b>First test it for 2 weeks.</b>
+    </div>
+    <button class="btn btn-primary" id="enterBtn">🔊 Enter AstroGod</button>
+    <label class="voice-row"><input type="checkbox" id="voiceToggle" checked /> Voice greeting on</label>
+  </div>
+</div>
+<!-- Persistent prototype banner -->
+<div class="proto-banner" id="protoBanner">
+  🛠️ <b>Prototype by Nilutpal</b> — testing for 2 weeks. <span>Give feedback on what's wrong!</span>
+  <button class="proto-close" id="protoClose">✕</button>
+</div>
+
+<!-- NAV -->
+<nav class="navbar">
+  <a class="logo" href="#hero">✨ Astro<span>God</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero" class="nav-link active" data-section="hero">Home</a></li>
+    <li><a href="#kundali" class="nav-link" data-section="kundali">Kundali</a></li>
+    <li><a href="#dasha" class="nav-link" data-section="dasha">Yogini Dasha</a></li>
+    <li><a href="#oracle" class="nav-link" data-section="oracle">AI Oracle</a></li>
+    <li><a href="#palm" class="nav-link" data-section="palm">Palm Scan</a></li>
+    <li><a href="#library" class="nav-link" data-section="library">Library</a></li>
+  </ul>
+  <div class="burger" id="burger"><span></span><span></span><span></span></div>
+</nav>
+
+<main>
+<!-- HERO -->
+<section id="hero" class="section hero">
+  <div class="hero-inner" data-anim="fade-up">
+    <p class="hero-eyebrow">🔮 Vedic Astrology × AI × 3D Cosmos</p>
+    <h1 class="hero-title">ASTRO<span>GOD</span></h1>
+    <p class="hero-sub">Your neon oracle for <b>kundali</b>, <b>Yogini Dasha</b>, <b>Shadbala yogas</b>, karmic health pointers &amp; palm-line scanning — scroll to descend through the cosmos.</p>
+    <div class="hero-buttons">
+      <a href="#kundali" class="btn btn-primary">Generate My Kundali</a>
+      <a href="#oracle" class="btn btn-ghost">Ask the Oracle</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>27</b><span>Nakshatras</span></div>
+      <div><b>12</b><span>Rashis</span></div>
+      <div><b>9</b><span>Grahas</span></div>
+      <div><b>8</b><span>Yoginis</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint" data-anim="fade-up"><span>Scroll</span><div class="mouse"><div class="wheel"></div></div></div>
+</section>
+
+<!-- DAILY HOROSCOPE -->
+<section id="horoscope" class="section">
+  <div class="section-header" data-anim="fade-up">
+    <span class="section-tag">✦ Daily Horoscope ✦</span>
+    <h2 class="section-title">What the stars whisper today</h2>
+    <p class="section-sub">Pick your Moon sign — the Oracle reveals today's cosmic weather.</p>
+  </div>
+  <div class="rashi-grid" id="rashiGrid" data-anim="pop"></div>
+  <div class="horoscope-card hidden" id="horoscopeCard">
+    <div class="horo-head"><span id="horoSign">♈</span><h3 id="horoName">Mesha</h3></div>
+    <div class="horo-meters">
+      <div><label>Love</label><div class="meter"><div id="mLove"></div></div></div>
+      <div><label>Career</label><div class="meter"><div id="mCareer"></div></div></div>
+      <div><label>Health</label><div class="meter"><div id="mHealth"></div></div></div>
+      <div><label>Luck</label><div class="meter"><div id="mLuck"></div></div></div>
+    </div>
+    <p class="horo-text" id="horoText"></p>
+
+<!-- KUNDALI -->
+<section id="kundali" class="section">
+  <div class="section-header" data-anim="fade-up">
+    <span class="section-tag">✦ 01 · Janma Kundali ✦</span>
+    <h2 class="section-title">Generate your birth chart</h2>
+    <p class="section-sub">Enter birth details — AstroGod computes ascendant, Moon sign, nakshatra &amp; planetary positions, then paints your North-Indian style kundali on canvas.</p>
+  </div>
+  <div class="panel-grid">
+    <form class="glass-card form-card" id="kundaliForm" data-anim="fade-right" onsubmit="return false;">
+      <label>Full name<input type="text" id="kName" placeholder="e.g. Aarav Sharma" /></label>
+      <label>Date of birth<input type="date" id="kDate" value="2000-01-01" required /></label>
+      <label>Time of birth<input type="time" id="kTime" value="12:00" required /></label>
+      <label>Place of birth<input type="text" id="kPlace" placeholder="e.g. Jaipur, India" /></label>
+      <button type="submit" class="btn btn-primary">🔯 Reveal My Chart</button>
+    </form>
+    <div class="glass-card chart-card" data-anim="fade-left">
+      <canvas id="kundaliCanvas" width="520" height="520"></canvas>
+      <div class="chart-result" id="kundaliResult">
+        <p class="placeholder">Your kundali mandala will appear here…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YOGINI DASHA -->
+<section id="dasha" class="section">
+  <div class="section-header" data-anim="fade-up">
+    <span class="section-tag">✦ 02 · Yogini Dasha ✦</span>
+    <h2 class="section-title">36-year karmic timeline</h2>
+    <p class="section-sub">Yogini Dasha (from classical texts) cycles through 8 Yoginis — Mangala, Pingala, Dhanya, Bhramari, Bhadrika, Ulka, Siddha &amp; Sankata — across 36 years, repeating lifelong. Enter your birth date to see your current Mahadasha.</p>
+  </div>
+  <div class="panel-grid">
+    <form class="glass-card form-card" id="dashaForm" data-anim="fade-right" onsubmit="return false;">
+      <label>Date of birth<input type="date" id="dDate" value="2000-01-01" required /></label>
+      <label>Nakshatra at birth (optional — auto-estimated if blank)
+        <select id="dNak">
+          <option value="">Auto-estimate from date</option>
+        </select>
+      </label>
+      <button type="submit" class="btn btn-primary">🪐 Compute My Dasha</button>
+      <p class="hint">Yogini sequence starts from the birth nakshatra lord. Without exact Moon longitude we estimate nakshatra from day-of-year — good for learning, not muhurta-grade.</p>
+    </form>
+    <div class="glass-card" data-anim="fade-left">
+      <div id="dashaResult"><p class="placeholder">Your Yogini timeline will unfold here…</p></div>
+      <div class="timeline" id="dashaTimeline"></div>
+    </div>
+  </div>
+</section>
+
+    <p class="horo-lucky" id="horoLucky"></p>
+  </div>
+</section>
+
+<!-- LIFE PREDICTION -->
+<section id="future" class="section">
+  <div class="section-header" data-anim="fade-up">
+    <span class="section-tag">✦ 03 · My Life Prediction ✦</span>
+    <h2 class="section-title">Your future, read from the shastras</h2>
+    <p class="section-sub">First generate your kundali above — then press the button. AstroGod applies Parashari house-lord rules to predict <b>career, wealth, marriage & spouse, health, character</b> and your <b>year-by-year future timeline</b>.</p>
+  </div>
+  <div class="glass-card future-wrap" data-anim="fade-up">
+    <button class="btn btn-primary" id="predictBtn">🔮 Reveal My Life Prediction</button>
+    <p class="hint">Reads your last generated kundali. No kundali yet? Generate one in section 01 first.</p>
+    <div class="future-grid" id="futureGrid"></div>
+  </div>
+</section>
+
+<!-- ORACLE CHAT -->
+<section id="oracle" class="section">
+  <div class="section-header" data-anim="fade-up">
+    <span class="section-tag">✦ 04 · AI Oracle ✦</span>
+    <h2 class="section-title">Ask AstroGod anything</h2>
+    <p class="section-sub">Powered by an in-browser knowledge engine distilled from Parashari classics, Yogini Dasha lore &amp; medical-astrology pointers. Try: <i>"What does Mangala Yogini mean?"</i> or <i>"Which planet governs the heart?"</i></p>
+  </div>
+  <div class="chat-wrap glass-card" data-anim="fade-up">
+    <div class="chat-log" id="chatLog">
+      <div class="msg bot"><span class="avatar">🔮</span><div class="bubble">Namaste, seeker. I am <b>AstroGod</b> — keeper of nakshatras, dashas and palm lines. Ask me of yogas, dashas, planets, health pointers or palmistry…</div></div>
+    </div>
+    <div class="chips" id="chips">
+      <button>What is Yogini Dasha?</button>
+      <button>What career suits me?</button>
+      <button>When will I marry? Spouse nature?</button>
+      <button>Will I be rich? Wealth yogas?</button>
+      <button>Which planet rules the heart?</button>
+      <button>What does a long life line mean?</button>
+    </div>
+    <form class="chat-input" id="chatForm" onsubmit="return false;">
+      <input type="text" id="chatText" placeholder="Ask about yogas, dashas, planets, palm lines…" autocomplete="off" />
+      <button type="submit" class="btn btn-primary">Ask ✦</button>
+    </form>
+    <details class="ai-settings">
+      <summary>⚙️ Oracle Settings — connect REAL AI (free Gemini key)</summary>
+      <p>Get a free key: <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">aistudio.google.com/app/apikey</a> → paste below. Stored only in YOUR browser. Long/complex questions then answered by live Gemini LLM with your chart context; short ones use the built-in shastra engine.</p>
+      <div class="chat-input">
+        <input type="password" id="gemKey" placeholder="Paste Gemini API key (AIza…)" autocomplete="off" />
+        <button type="button" class="btn btn-ghost" id="gemSave">Save</button>
+      </div>
+      <p class="hint" id="gemStatus"></p>
+    </details>
+  </div>
+</section>
+
+<!-- MEDICAL ASTROLOGY -->
+<section id="health" class="section">
+  <div class="section-header" data-anim="fade-up">
+    <span class="section-tag">✦ 05 · Medical Astrology ✦</span>
+    <h2 class="section-title">Planets, houses &amp; the body</h2>
+    <p class="section-sub">Classical pointers (Parashara · Phaladeepika · modern medical-astrology research): each planet, sign and house resonates with body parts. Select a planet to see its karmic health significations.</p>
+  </div>
+  <div class="planet-grid" id="planetGrid" data-anim="pop"></div>
+  <div class="glass-card hidden" id="planetCard" data-anim="fade-up">
+    <h3 id="planetName"></h3>
+    <div class="cols">
+      <div><h4>🧍 Body parts</h4><p id="planetBody"></p></div>
+      <div><h4>🏠 Key houses</h4><p id="planetHouse"></p></div>
+      <div><h4>💎 Balancing remedies</h4><p id="planetRemedy"></p></div>
+    </div>
+    <p class="disclaimer">⚕️ Educational astrology only — never a medical diagnosis. Always consult a qualified doctor for health concerns.</p>
+  </div>
+  <div class="glass-card remedy-card" data-anim="fade-up">
+    <h3>🌿 Classical balancing remedies</h3>
+    <div class="remedy-grid">
+      <div><b>Surya</b><span>Morning sunlight, copper vessel water, Gayatri mantra</span></div>
+      <div><b>Chandra</b><span>Moonlight walks, silver, calming pranayama</span></div>
+      <div><b>Mangal</b><span>Exercise, red lentils donation, Hanuman Chalisa</span></div>
+      <div><b>Budha</b><span>Green foods, learning, Vishnu mantra</span></div>
+      <div><b>Guru</b><span>Yellow foods, teacher service, Thursday fasting</span></div>
+      <div><b>Shukra</b><span>Cleanliness, arts, Lakshmi mantra</span></div>
+      <div><b>Shani</b><span>Discipline, oil donation, helping elders</span></div>
+      <div><b>Rahu</b><span>Detox habits, coconut donation, Durga mantra</span></div>
+      <div><b>Ketu</b><span>Meditation, blanket donation, Ganesha mantra</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PALMISTRY SCANNER -->
+<section id="palm" class="section">
+  <div class="section-header" data-anim="fade-up">
+    <span class="section-tag">✦ 06 · Palmistry Scanner ✦</span>
+    <h2 class="section-title">AI palm-line reading</h2>
+    <p class="section-sub">Open your camera, align your palm inside the frame, and capture. AstroGod's vision engine detects the four great lines — Life, Head, Heart &amp; Fate — and interprets them classically.</p>
+  </div>
+  <div class="panel-grid">
+    <div class="glass-card cam-card" data-anim="fade-right">
+      <div class="cam-stage">
+        <video id="camVideo" playsinline muted></video>
+        <canvas id="camCanvas"></canvas>
+        <div class="scan-frame"></div>
+        <div class="scan-laser hidden" id="scanLaser"></div>
+      </div>
+      <div class="cam-buttons">
+        <button class="btn btn-primary" id="camStart">📷 Open Camera</button>
+        <button class="btn btn-ghost" id="camCapture" disabled>✦ Capture &amp; Read</button>
+        <button class="btn btn-ghost hidden" id="camStop">⏹ Stop</button>
+      </div>
+      <p class="hint" id="camStatus">Camera needs your permission. Use back camera + bright light, palm flat and steady.</p>
+    </div>
+    <div class="glass-card" data-anim="fade-left">
+      <div class="palm-lines">
+        <button class="pline active" data-line="life">🌿 Life Line</button>
+        <button class="pline" data-line="head">🧠 Head Line</button>
+        <button class="pline" data-line="heart">❤️ Heart Line</button>
+        <button class="pline" data-line="fate">🪐 Fate Line</button>
+      </div>
+      <div id="palmResult"><p class="placeholder">Your palm reading will manifest here after capture…</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIBRARY -->
+<section id="library" class="section">
+  <div class="section-header" data-anim="fade-up">
+    <span class="section-tag">✦ 07 · Sacred Library ✦</span>
+    <h2 class="section-title">Wisdom of the classical texts</h2>
+    <p class="section-sub">The actual teachings of your five books — distilled inside AstroGod. Click any verse-set to reveal its core, then ask the Oracle about it.</p>
+  </div>
+  <div class="books-grid">
+    <article class="book-card" data-anim="fade-up" style="--i:0">
+      <div class="book-glyph">🩺</div><h3>Locate Disease Astrologically</h3>
+      <p class="author">V. P. Goel · divisional-chart medicine</p>
+      <p><b>Core method:</b> Lagna + 6th (roga) + 8th (chronic) + most-afflicted planet, confirmed when the SAME planet/house repeats in D-6 &amp; D-60. Shashtiamsha (D-60) = chronic imprint · D-6 = acute illness · D-8 = sudden shocks.</p>
+      <div class="book-extra hidden">Surya→heart/bones · Chandra→mind/fluids · Mangal→blood/inflammation · Budha→nerves/skin · Guru→liver/fat · Shukra→kidney/reproductive · Shani→joints/chronic vata · Rahu→undiagnosed/toxins · Ketu→fevers/scars. Remedy follows the CAUSE planet. ⚕️ Study lens — doctors diagnose.</div>
+      <button class="btn btn-ghost book-btn" data-book="goel">📖 Reveal teachings</button>
+    </article>
+    <article class="book-card" data-anim="fade-up" style="--i:1">
+      <div class="book-glyph">🪐</div><h3>Yogini Dasha</h3>
+      <p class="author">36-year prediction cycle</p>
+      <p><b>Core method:</b> 8 Yoginis × fixed years (Mangala 1 · Pingala 2 · Dhanya 3 · Bhramari 4 · Bhadrika 5 · Ulka 6 · Siddha 7 · Sankata 8 = 36), repeating from birth-nakshatra order. Dhanya/Bhadrika/Siddha uplift; Ulka/Sankata mature.</p>
+      <div class="book-extra hidden">Dhanya–Guru: wealth, marriage, children. Siddha–Shukra: luxury, vehicles, love. Bhramari–Mangal: land &amp; courage. Ulka–Shani: delays &amp; tests. Sankata–Rahu: sudden turns — stay humble, no speculation. Your live timeline is computed in section 04.</div>
+      <button class="btn btn-ghost book-btn" data-book="yogini">📖 Reveal teachings</button>
+    </article>
+    <article class="book-card" data-anim="fade-up" style="--i:2">
+      <div class="book-glyph">📜</div><h3>Laghu Parashari</h3>
+      <p class="author">Functional yogas in verse form</p>
+      <p><b>Core method:</b> kendra+trikona lords = functional benefics; 3/6/11 lords = functional malefics. Kendra lord + trikona lord joined = Raja Yoga. 2nd + 5th/9th/11th = Dhana yoga. Dusthana malefic in dusthana = Vipareeta Raja.</p>
+      <div class="book-extra hidden">A yoga-planet's dasha delivers BOTH houses it owns. 8th lord spoils; 2nd/12th neutral. Your chart's kendra/trikona/dusthana yogas are auto-detected in section 03 (My Life Prediction).</div>
+      <button class="btn btn-ghost book-btn" data-book="laghu">📖 Reveal teachings</button>
+    </article>
+    <article class="book-card" data-anim="fade-up" style="--i:3">
+      <div class="book-glyph">📚</div><h3>Brihat Parashara Hora Shastra</h3>
+      <p class="author">The Parashara foundation</p>
+      <p><b>Core method:</b> graha (what) + bhava (where) + dasha (when) + gochara (trigger). 12 bhavas from self→moksha; 9 grahas from soul (Surya) to moksha (Ketu). Promise without dasha sleeps.</p>
+      <div class="book-extra hidden">1 self · 2 wealth · 3 courage · 4 home · 5 progeny/mantra · 6 disease/enemies · 7 spouse · 8 longevity · 9 fortune · 10 career · 11 gains · 12 foreign/moksha. Karakas: Guru=progeny, Shukra=spouse, Shani=sorrow/service, Rahu=foreign hunger.</div>
+      <button class="btn btn-ghost book-btn" data-book="bphs">📖 Reveal teachings</button>
+    </article>
+    <article class="book-card" data-anim="fade-up" style="--i:4">
+      <div class="book-glyph">🔥</div><h3>Phaladeepika</h3>
+      <p class="author">Mantreshwara · lamp of results</p>
+      <p><b>Core method:</b> judge each bhava by (a) its lord's strength (b) occupants (c) aspects. Malefics in 3/6/11 grow with time; benefics in kendra protect the whole chart like lamps in a hall.</p>
+      <div class="book-extra hidden">10th strong = rank · 7th pure + Shukra = devotion · 5th + Guru = brilliant progeny · 4th = property bliss · 9th = fortune. Weak bhava lord in dusthana = that area needs remedy + effort in its dasha.</div>
+      <button class="btn btn-ghost book-btn" data-book="phala">📖 Reveal teachings</button>
+    </article>
+    <article class="book-card self" data-anim="fade-up" style="--i:5">
+      <div class="book-glyph">✨</div><h3>+ AstroGod's synthesis</h3>
+      <p class="author">Computed live from your chart</p>
+      <p>Real ephemeris + nakshatra padas + Parashari house-lord engine + Goel health lens + palm-line vision — fused into one oracle.</p>
+      <a class="btn btn-primary" href="#oracle">Consult the Oracle</a>
+    </article>
+  </div>
+  <p class="disclaimer center" data-anim="fade-up">🌟 AstroGod blends classical principles with modern computation for learning &amp; reflection — not a substitute for professional, medical, legal or financial advice.</p>
+</section>
+
+<footer class="footer">
+  <p>✨ <b>AstroGod</b> © <span id="year"></span> · Crafted under auspicious stars · Parashara · Phaladeepika · Yogini Dasha · Palm Shastra</p>
+</footer>
+</main>
+
+<!-- FLOATING ORACLE BUTTON -->
+<button class="oracle-fab" id="oracleFab" aria-label="Open oracle">🔮</button>
+
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }</script>
+<script type="module" src="cosmos.js"></script>
+<script type="module" src="script.js"></script>
+<script type="module" src="predict.js"></script>
+<script>
+setTimeout(function(){var l=document.getElementById("loader");if(l)l.classList.add("hidden");},4500);
+</script>
+</body>
+</html>
+

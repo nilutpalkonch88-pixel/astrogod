@@ -1,0 +1,120 @@
+/* ASTRODGOD KNOWLEDGE 1/2 */
+export const NAKSHATRAS=[
+["Ashwini","Ketu","Ashwini Kumaras","Mesha"],["Bharani","Shukra","Yama","Mesha"],
+["Krittika","Surya","Agni","Mesha/Vrishabha"],["Rohini","Chandra","Brahma","Vrishabha"],
+["Mrigashira","Mangal","Soma","Vrishabha/Mithuna"],["Ardra","Rahu","Rudra","Mithuna"],
+["Punarvasu","Guru","Aditi","Mithuna/Karka"],["Pushya","Shani","Brihaspati","Karka"],
+["Ashlesha","Budha","Nagas","Karka"],["Magha","Ketu","Pitris","Simha"],
+["Purva Phalguni","Shukra","Bhaga","Simha"],["Uttara Phalguni","Surya","Aryaman","Simha/Kanya"],
+["Hasta","Chandra","Savitar","Kanya"],["Chitra","Mangal","Vishwakarma","Kanya/Tula"],
+["Swati","Rahu","Vayu","Tula"],["Vishakha","Guru","Indra-Agni","Tula/Vrishchika"],
+["Anuradha","Shani","Mitra","Vrishchika"],["Jyeshtha","Budha","Indra","Vrishchika"],
+["Mula","Ketu","Nirriti","Dhanu"],["Purva Ashadha","Shukra","Apas","Dhanu"],
+["Uttara Ashadha","Surya","Vishvadevas","Dhanu/Makara"],["Shravana","Chandra","Vishnu","Makara"],
+["Dhanishta","Mangal","Vasus","Makara/Kumbha"],["Shatabhisha","Rahu","Varuna","Kumbha"],
+["Purva Bhadrapada","Guru","Aja Ekapada","Kumbha/Meena"],["Uttara Bhadrapada","Shani","Ahirbudhnya","Meena"],
+["Revati","Budha","Pushan","Meena"]];
+export const RASHIS=[
+["Mesha","Aries","♈","Mangal","Fire"],["Vrishabha","Taurus","♉","Shukra","Earth"],
+["Mithuna","Gemini","♊","Budha","Air"],["Karka","Cancer","♋","Chandra","Water"],
+["Simha","Leo","♌","Surya","Fire"],["Kanya","Virgo","♍","Budha","Earth"],
+["Tula","Libra","♎","Shukra","Air"],["Vrishchika","Scorpio","♏","Mangal","Water"],
+["Dhanu","Sagittarius","♐","Guru","Fire"],["Makara","Capricorn","♑","Shani","Earth"],
+["Kumbha","Aquarius","♒","Shani","Air"],["Meena","Pisces","♓","Guru","Water"]];
+export const YOGINIS=[
+{n:"Mangala",lord:"Chandra",yrs:1,g:"🌙",q:"gentle beginnings, mother & mind, emotional wisdom",t:"Favour routine, healing and family bonds."},
+{n:"Pingala",lord:"Surya",yrs:2,g:"☀️",q:"radiance, authority, vitality rising",t:"Step into leadership; honour mentors."},
+{n:"Dhanya",lord:"Guru",yrs:3,g:"🟡",q:"growth, wealth, dharma, wise counsel",t:"Study, invest, marry — golden window."},
+{n:"Bhramari",lord:"Mangal",yrs:4,g:"🔥",q:"energy, courage, property, drive",t:"Act boldly with discipline."},
+{n:"Bhadrika",lord:"Budha",yrs:5,g:"💚",q:"intellect, trade, eloquence",t:"Learn, write, trade, refine speech."},
+{n:"Ulka",lord:"Shani",yrs:6,g:"🪐",q:"tests, delays, deep karma",t:"Slow down, serve, persist."},
+{n:"Siddha",lord:"Shukra",yrs:7,g:"💎",q:"fulfilment, luxury, love",t:"Create, celebrate, give thanks."},
+{n:"Sankata",lord:"Rahu",yrs:8,g:"🐉",q:"upheaval, sudden change",t:"Stay humble; avoid speculation."}];
+export const PLANETS={
+Surya:{g:"☀️",body:"Heart, right eye, bones, spine, vitality, circulation.",house:"1st vitality, 5th heart, 9th father. Afflicted Surya + 6th/8th = heart/eye/bone weakness (classical).",remedy:"Sunlight, copper water, Surya Namaskar, Aditya Hridayam Sundays."},
+Chandra:{g:"🌙",body:"Mind, left eye, chest, lungs, fluids, digestion.",house:"4th chest/mother, 1st mind-body. Affliction = anxiety, sleep, hormonal swings.",remedy:"Moonlight walks, silver, pranayama, Monday offerings."},
+Mangal:{g:"🔥",body:"Blood, muscles, marrow, head, nose, vigour.",house:"1st head, 6th injuries, 8th operations. Accident/inflammation significator.",remedy:"Exercise, red-lentil daan, Hanuman Chalisa Tuesdays."},
+Budha:{g:"💚",body:"Nerves, skin, speech, hands, intellect, thyroid.",house:"3rd arms, 6th nervous disorders. Skin/speech/anxiety patterns.",remedy:"Green foods, learning, Vishnu mantra."},
+Guru:{g:"🟡",body:"Liver, fat, thighs, ears, immunity, sugar metabolism.",house:"5th liver, 9th thighs/immunity. Affliction = weight/liver/excess.",remedy:"Yellow foods, teacher seva, Thursday fast."},
+Shukra:{g:"💎",body:"Kidneys, reproductive system, throat, cheeks, lustre.",house:"7th reproductive, 2nd face. Affliction = sugar/kidney/hormonal.",remedy:"Cleanliness, arts, Lakshmi mantra Fridays."},
+Shani:{g:"🪐",body:"Joints, knees, teeth, bones, legs, vata nerves.",house:"6th/8th/12th chronic illness. Saturn = chronicity & deficiency.",remedy:"Discipline, oil daan, serve elders."},
+Rahu:{g:"🐉",body:"Undiagnosed ailments, toxins, addictions, fog, immunity confusion.",house:"6th/8th/12th hidden foes & hospitals. Sudden & unconventional.",remedy:"Detox, coconut daan, Durga mantra."},
+Ketu:{g:"☄️",body:"Unknown fevers, scars, tailbone, allergies, sensitivity.",house:"6th/8th/12th past wounds & sudden events.",remedy:"Meditation, blanket daan, Ganesha mantra."}};
+export const YOGAS=[
+["Budha-Aditya Yoga","Surya+Budha: intellect, administration, fame via knowledge."],
+["Gaja Kesari Yoga","Guru in kendra from Chandra: wisdom, respect, prosperity."],
+["Panch Mahapurusha","Mars/Merc/Jup/Ven/Sat in own/exalted kendra: Ruchaka, Bhadra, Hamsa, Malavya, Sasha."],
+["Dhana Yogas","1-2-5-9-11 lords connected: wealth combos; strength decides size."],
+["Raja Yogas","Kendra+trikona lords joined: power & rise."],
+["Neecha Bhanga","Debilitation cancelled: fall reversed into rise."],
+["Vipareeta Raja","6/8/12 lords in dusthanas: success through crisis."],
+["Chandra-Mangala","Mind+drive: wealth via enterprise when well placed."]];
+/* KNOWLEDGE 2/2 — palm lines + oracle Q&A */
+export const PALM={
+life:{t:"🌿 Life Line",d:"Arcs the Venus mount (thumb). Classical view: vitality, stamina & life phases — length suggests endurance, NOT lifespan. Breaks = moves/health chapters; upward branches = support & recovery."},
+head:{t:"🧠 Head Line",d:"Mid-palm from Jupiter mount. Long-clear = focus; sloping = imagination; straight = logic. Chains/islands folk-read as rest-deficit periods."},
+heart:{t:"❤️ Heart Line",d:"Top line under fingers. Curved = warm expression; straight = loyal reserve. Depth = emotional resilience; breaks = resets, not doom."},
+fate:{t:"🪐 Fate Line",d:"Vertical rise to Saturn finger. Strong = steady career; absent = self-made zigzag; breaks = pivots. Effort redraws it daily."}};
+/* SHASTRA PREDICTION DATA — distilled principles of Parashara/Phaladeepika/Laghu-Parashari */
+export const SIGN_LORDS=["Mangal","Shukra","Budha","Chandra","Surya","Budha","Shukra","Mangal","Guru","Shani","Shani","Guru"];
+export const HOUSE_MEAN=["self, body, character","wealth, speech, family","courage, siblings, skills","home, mother, comfort","intellect, children, heart","disease, enemies, service","marriage, spouse, partnership","longevity, transformation, in-laws","dharma, fortune, guru","career, karma, status","gains, friends, wishes","loss, foreign, moksha"];
+export const CAREER_FIELDS={
+Surya:"government, administration, politics, management, leadership roles — authority shines (Phaladeepika: Surya in kendra gives rank).",
+Chandra:"public dealing, hospitality, nursing, dairy/liquids, arts, hospitality & care — Moon favours people-facing work.",
+Mangal:"engineering, defence, police, surgery, sports, real-estate, technology hardware — Mars gives technical courage.",
+Budha:"business, trade, IT, accounting, writing, teaching, communication & commerce — Mercury rules commerce.",
+Guru:"teaching, judiciary, banking/finance, priesthood, consultancy, HR — Jupiter gives wisdom professions.",
+Shukra:"cinema, fashion, beauty, luxury, design, music, hospitality — Venus gives arts & comforts.",
+Shani:"industry, labour management, law, agriculture, oil/iron, service jobs, tech operations — Saturn rewards grind.",
+Rahu:"foreign companies, AI/tech, media, aviation, unconventional startups — Rahu gives out-of-box rise.",
+Ketu:"research, analytics, healing, astrology, spiritual work, forensics — Ketu gives depth & insight."};
+export const SPOUSE_HINT={
+Surya:"dignified, proud, responsible partner; possibly elder or authoritative family.",
+Chandra:"caring, emotional, beautiful-eyed partner; attached to home & mother.",
+Mangal:"bold, energetic, sharp-tongued partner; needs patience — classic Mangal energy.",
+Budha:"young-looking, witty, educated, business-minded partner.",
+Guru:"wise, calm, virtuous, possibly teacherly partner; age-gap or mature nature.",
+Shukra:"attractive, artistic, loving, comfort-loving partner — most harmonious.",
+Shani:"mature, serious, dutiful partner; may come late but stays loyal.",
+Rahu:"foreign/different-culture or unconventional partner; sudden meeting.",
+Ketu:"spiritual, detached, quiet partner; karmic reunion feel."};
+export const QA=[
+{k:["yogini","dasha","36 year","36-year","mahadasha"],a:"<b>Yogini Dasha</b>: 36-year cycle of 8 Yoginis — Mangala(1) Pingala(2) Dhanya(3) Bhramari(4) Bhadrika(5) Ulka(6) Siddha(7) Sankata(8), repeating lifelong from birth-nakshatra order. Dhanya/Bhadrika/Siddha kinder; Ulka & Sankata demand patience. Compute yours above!"},
+{k:["budha-aditya","budha aditya","sun mercury","surya budha"],a:"<b>Budha-Aditya Yoga</b>: Surya+Budha conjoined — intellect, administration, fame via knowledge. In kendra/trikona it shines brightest."},
+{k:["gaja kesari","gajakesari"],a:"<b>Gaja Kesari</b>: Guru in kendra from Chandra — wisdom, respect, durable prosperity. Strong unafflicted Guru amplifies it."},
+{k:["heart","cardiac","chest"],a:"<b>Heart pointers:</b> Surya + 4th (chest) + 5th (heart). Afflicted Surya with 6th/8th involvement is the textbook hint. Educational only — see a cardiologist for real concerns."},
+{k:["moon","chandra","mind","mental","anxiety","sleep"],a:"<b>Chandra</b> = mind, fluids, sleep. Afflicted Moon (Rahu/Ketu/Shani, dusthanas) correlates with anxiety & broken sleep. Moonlight, routine, pranayama help. Real distress? Seek a professional."},
+{k:["saturn","shani","sade sati","sadesati"],a:"<b>Shani</b> = karma & discipline. Sade Sati (Saturn over natal Moon ±1) is ~7.5 yrs of maturation: serve, simplify, persist. Ulka Yogini (Shani, 6y) echoes it."},
+{k:["rahu","ketu","eclipse"],a:"<b>Rahu</b> = hunger, foreign, sudden; <b>Ketu</b> = release, insight, hidden fire. Sankata Yogini is Rahu-ruled: humility & adaptability."},
+{k:["mangal","manglik","dosha"],a:"<b>Mangal</b> = blood, courage, property. Dosha (Mars 1/2/4/7/8/12) weighed in matching, with cancellations (strong Guru, own-sign Mars…). Bhramari Yogini (Mars, 4y): courage + discipline."},
+{k:["life line","lifeline","palm","hand"],a:"<b>Life line</b> = vitality & chapters, not a death clock! Long = stamina; breaks = moves/chapters; upward branches = support. Scan your palm above!"},
+{k:["heart line"],a:"<b>Heart line</b>: curved = expressive warmth; straight = loyal reserve. Depth = resilience; breaks = resets."},
+{k:["head line"],a:"<b>Head line</b>: long-clear = focus; sloping = imagination; straight = logic."},
+{k:["fate line","saturn line","career"],a:"<b>Fate line</b> to Saturn finger: strong = steady career; absent = self-made zigzags; breaks = pivots."},
+{k:["sankata"],a:"<b>Sankata</b> (Rahu, 8y): storm-passage — sudden turns. Counsel: humility, no speculation, Durga mantra. Storms pass."},
+{k:["siddha"],a:"<b>Siddha</b> (Shukra, 7y): fulfilment — love, luxury, creativity. Create & give thanks."},
+{k:["ulka"],a:"<b>Ulka</b> (Shani, 6y): grindstone — delays & tests. Serve, simplify, persist."},
+{k:["dhanya"],a:"<b>Dhanya</b> (Guru, 3y): growth & grace — study, invest, expand. Golden window!"},
+{k:["bhadrika"],a:"<b>Bhadrika</b> (Budha, 5y): intellect & trade — learn, write, negotiate."},
+{k:["bhramari"],a:"<b>Bhramari</b> (Mangal, 4y): fire & drive — property & enterprise with discipline."},
+{k:["nakshatra"],a:"27 <b>nakshatras</b>, Ashwini→Revati — the Moon's mansions. Birth nakshatra sets Yogini & Vimshottari starts. Generate kundali above!"},
+{k:["lagna","ascendant","kundali","birth chart","janma"],a:"<b>Lagna</b> = eastern rising sign, the chart's foundation. Generate your kundali above with date/time/place!"},
+{k:["gemstone","gem","remedy","mantra","upay"],a:"Classical <b>remedies</b>: mantra, daan, fasting, gems, Rudraksha per afflicted planet. Mantra & service always safe; gems need learned consult. See remedies grid!"},
+{k:["disease","medical","health","shashtiamsha","divisional","roga"],a:"<b>Medical astrology</b>: Lagna, 6th/8th, afflicted planets + Shashtiamsha (D-60) & Rogamsha lenses. Pick a planet in Medical Astrology above! Learning only — doctors diagnose."},
+{k:["hello","hi ","namaste","hey","pranam"],a:"Namaste, radiant soul! Ask me of <b>yogas, dashas, planets, health pointers, palm lines</b> — or generate your kundali!"},
+{k:["thank","dhanyavad","shukriya"],a:"Blessings on your path! May Guru guide you. Return anytime, seeker."},
+{k:["job","career","naukri","profession","business","work","promotion"],a:"<b>Career — Parashari rules:</b> judge the <b>10th house, its lord & Shani</b> + the strongest kendra planet. 10th lord in kendra/trikona = rise; in dusthana = struggle then success. Budha=trade/IT, Guru=teaching/banking, Shukra=arts, Mangal=engineering/defence, Shani=industry/law, Rahu=foreign/tech. 👉 Generate your kundali, then open <b>My Life Prediction</b> for YOUR career reading!"},
+{k:["wife","spouse","marriage","shaadi","partner","husband","vivah"],a:"<b>Marriage — classical rules:</b> judge <b>7th house, its lord & Shukra</b> (kalatra-karaka), plus Moon for mind-match. Strong Shukra + clean 7th = harmonious union; Mangal in 1/2/4/7/8/12 = Mangal-dosha (many cancellations exist). Timing flows in Shukra/Guru Yogini periods. 👉 Open <b>My Life Prediction</b> for YOUR spouse reading!"},
+{k:["future","bhavishya","prediction","destiny","fate","kismat"],a:"The shastras read future via <b>dashas + transits over natal promise</b>: Yogini Mahadasha sets the chapter, 10th/7th/11th houses show career/marriage/gains. Dhanya–Bhadrika–Siddha years uplift; Ulka–Sankata mature you. 👉 Generate kundali → <b>My Life Prediction</b> reveals YOUR timeline!"},
+{k:["character","nature","personality","temperament","swabhav"],a:"<b>Character — Lagna + Chandra + strongest planet:</b> Lagna shows outer self, Moon the mind, the strongest graha colours all. Surya=proud leader, Chandra=soft empath, Mangal=fiery doer, Budha=witty speaker, Guru=wise guide, Shukra=charming artist, Shani=deep grinder. 👉 Your reading waits in <b>My Life Prediction</b>!"},
+{k:["wealth","money","rich","dhan","income","finance"],a:"<b>Wealth — Dhana yogas (Laghu Parashari):</b> lords of 1-2-5-9-11 connected = wealth; 11th lord strong = gains through friends; Guru+Chandra = Gaja-Kesari prosperity. Dhanya & Siddha Yoginis are money windows. 👉 See YOUR wealth yoga in <b>My Life Prediction</b>!"},
+{k:["children","child","santan","baby"],a:"<b>Children — 5th house + Guru (putra-karaka):</b> strong Guru & clean 5th = bright progeny; afflicted 5th/8th involvement = delays, remedied by Guru seva & Thursday fasts. Timing favours Guru/Dhanya periods. (Sensitive topic — a learned astrologer reads the full chart.)"},
+{k:["government job","sarkari","upsc","ias","exam"],a:"<b>Sarkari yogas (Phaladeepika):</b> strong Surya + 10th lord in kendra + Gaja-Kesari/Raja yoga = rank & authority. Surya–Guru periods (Pingala/Dhanya) favour exams & interviews. Strength decides — check YOUR 10th house in <b>My Life Prediction</b>!"},
+{k:["foreign","videsh","abroad","visa"],a:"<b>Foreign yogas:</b> 12th lord with 9th/10th, Rahu in 7th/10th/12th, Sankata-period restlessness = videsh chances. Shani+Rahu periods often trigger relocation. 👉 Your 12th-house verdict is in <b>My Life Prediction</b>!"},
+{k:["mangal dosha","manglik","kuja dosha"],a:"<b>Mangal Dosha:</b> Mars in 1/2/4/7/8/12 from Lagna/Moon/Shukra. Classical cancellations: Mars in own/exalted sign, Guru aspect, Mars in kendra of strong chart… most 'doshas' dilute on full reading. Remedy: Hanuman Chalisa Tuesdays, patience. Get YOUR verdict in <b>My Life Prediction</b>!"},
+{k:["sade sati","sadhesati","dhaiya"],a:"<b>Sade Sati:</b> Saturn transiting natal Moon ±1 sign (~7.5 yrs). Rising phase=pressure, peak=transformation, setting=reward. Serve elders, simplify, persist — Saturn pays the steady. Ulka Yogini echoes the same lesson."},
+{k:["goel","divisional","shashtiamsha","locate disease","roga"],a:"<b>V. P. Goel — Locate Disease Astrologically:</b> disease is located by <b>Lagna + 6th (roga) + 8th (chronic) + afflicted planet + divisional confirmation</b>. Shashtiamsha (D-60, past-life imprint) confirms chronic tendency, Shashtha-amsha (D-6) maps acute illness, Ashtamamsha (D-8) sudden/chronic shocks. Method: ① mark the weakest house (6/8/12) ② note the most afflicted graha (malefic conjunction/aspect, combustion, dusthana) ③ verify the SAME planet/house repeats in D-6 & D-60 — repetition = high probability zone. Surya afflicted→heart/bones, Chandra→mind/fluids, Mangal→blood/inflammation, Budha→nerves/skin, Guru→liver/fat, Shukra→kidney/reproductive, Shani→joints/chronic vata, Rahu→undiagnosed/toxins, Ketu→fevers/scars. Remedy follows the CAUSE planet (mantra·daan·fast). ⚕️ Study lens only — doctors diagnose."},
+{k:["laghu parashari","parashari yoga","functional benefic","functional malefic"],a:"<b>Laghu Parashari — the predictive core:</b> (1) Kendra (1/4/7/10) + Trikona (1/5/9) lords are <b>functional benefics</b>; 3/6/11 lords are <b>functional malefics</b>; 2/12 neutral; 8th is the great spoiler. (2) A Raja Yoga forms when a <b>kendra lord joins/exchanges with a trikona lord</b> — that planet's dasha delivers rise. (3) <b>Dhana yogas:</b> 2nd lord + 5th/9th/11th connections build wealth. (4) Dasha of a yoga-forming planet gives results of BOTH houses it owns. (5) Malefic in dusthana (6/8/12) owning dusthana = <b>Vipareeta Raja</b> — success through crisis. 👉 Your yogas are detected live in My Life Prediction!"},
+{k:["phaladeepika","mantreshwara","bhava phala"],a:"<b>Phaladeepika (Mantreshwara) — bhava wisdom:</b> 10th strong = rank & karma-power; 7th pure + Shukra strong = devoted spouse; 5th + Guru pure = brilliant progeny & mantra-siddhi; 4th strong = property & maternal bliss; 9th strong = fortune & dharma. Malefics in 3/6/11 (upachaya) GROW with time — courage, victory over enemies, gains. Same malefics in 1/5/9 damage unless they own good houses. Benefics in kendra protect the whole chart like lamps in a hall."},
+{k:["brihat parashara","parashara hora","bpHs"],a:"<b>Brihat Parashara Hora Shastra — foundations:</b> ① Graha significations: Surya=soul/authority, Chandra=mind/mother, Mangal=courage/siblings, Budha=speech/trade, Guru=wisdom/progeny, Shukra=spouse/luxury, Shani=servitude/sorrow, Rahu=foreign/obsession, Ketu=moksha/insight. ② Bhavas: 1 self, 2 wealth/speech, 3 courage, 4 home/mother, 5 progeny/mantra, 6 enemies/disease, 7 spouse, 8 longevity/chronic, 9 fortune/dharma, 10 karma/career, 11 gains, 12 loss/moksha/foreign. ③ Dasha = the clock; yoga = the promise; gochara = the trigger. Promise without dasha sleeps; dasha without promise stays ordinary."},
+{k:["yogini effect","yogini phala","dhanya phala","sankata phala","ulka phala"],a:"<b>Yogini Dasha phala (prediction text):</b> 📖 Mangala–Chandra (1y): peace at home, mother's blessing, small gains. Pingala–Surya (2y): honour, government favour, rise in rank. Dhanya–Guru (3y): wealth, marriage, children, dharma — the golden period. Bhramari–Mangal (4y): land/property, courage ventures; quarrels if Mangal afflicted. Bhadrika–Budha (5y): trade profits, learning, eloquence, beauty. Ulka–Shani (6y): obstacles, transfers, health tests — patience & service carry you. Siddha–Shukra (7y): luxury, vehicles, love, comforts — fulfilment years. Sankata–Rahu (8y): sudden transfers, anxiety, foreign turns — humility, no speculation. 👉 Your live timeline is in section 04!"}];
